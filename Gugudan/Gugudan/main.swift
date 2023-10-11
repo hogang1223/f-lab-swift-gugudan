@@ -17,3 +17,37 @@ import Foundation
  6. Functional Programming 형태로
  7. 깃허브에 올리고 코드 리뷰 요청하기
  */
+
+
+// 4. 구조체
+struct Gugudan {
+    let column: Int
+    let rows = [1,2,3,4,5,6,7,8,9]
+    
+    var output: String {
+        get {
+            return self.outputGugudan()
+        }
+    }
+    
+    func outputGugudan() -> String {
+        var output = ""
+        for row in rows {
+            output += "\(column) X \(row) = \(column * row)\n"
+        }
+        return output
+    }
+}
+
+let gugudan = Gugudan(column: 5)
+let output = gugudan.output
+print(output)
+
+/*
+ 구조체를 사용하는 것이 좋은 경우.
+ 1. 서로 연관된 몇개의 기본 데이터 타입들을 캡슐화하여 묶는 것이 목적일 때
+ 2. 갭슐화된 데이터에 상속이 필요하지 않을 때
+ 3. 캡슐화된 데이터를 전달하거나 할당하는 과정에서 참조 방식보다는 값이 복사되는 것이 합리적일 때
+ 4. 캡슐화된 원본 데이터를 보존해야할 때
+ */
+
