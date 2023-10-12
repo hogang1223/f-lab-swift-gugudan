@@ -21,27 +21,29 @@ import Foundation
 
 // 4. 구조체
 struct Gugudan {
-    let column: Int
-    let rows = [1,2,3,4,5,6,7,8,9]
     
-    var output: String {
-        get {
-            return self.outputGugudan()
+    // 1~9단까지 출력하기
+    func outputGugudan(_ column: Int = 9) {
+        if column != 0 {
+            outputGugudan(column - 1)
+            recursiveRow(column: column)
         }
     }
-    
-    func outputGugudan() -> String {
-        var output = ""
-        for row in rows {
-            output += "\(column) X \(row) = \(column * row)\n"
+
+    func recursiveRow(column: Int, row: Int = 9) {
+        if row != 0 {
+            recursiveRow(column: column, row: row - 1)
+            outputMultipleOfTwoNumbers(column, row)
         }
-        return output
+    }
+    // 두 수의 곱을 출력하는 함수
+    func outputMultipleOfTwoNumbers(_ num1: Int, _ num2: Int) {
+        print("\(num1) X \(num2) = \(num1 * num2)")
     }
 }
 
-let gugudan = Gugudan(column: 5)
-let output = gugudan.output
-print(output)
+let gugudan = Gugudan()
+gugudan.outputGugudan()
 
 /*
  구조체를 사용하는 것이 좋은 경우.
@@ -50,4 +52,3 @@ print(output)
  3. 캡슐화된 데이터를 전달하거나 할당하는 과정에서 참조 방식보다는 값이 복사되는 것이 합리적일 때
  4. 캡슐화된 원본 데이터를 보존해야할 때
  */
-
