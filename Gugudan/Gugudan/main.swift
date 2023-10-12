@@ -21,21 +21,22 @@ import Foundation
 
 // 4. 구조체
 struct Gugudan {
-    
+    let max = 9
     // 1~9단까지 출력하기
-    func outputGugudan(_ column: Int = 9) {
-        if column != 0 {
-            outputGugudan(column - 1)
-            recursiveRow(column: column)
+    func outputGugudan(column: Int = 1, row: Int = 1) {
+        // 단수가 max값보다 크면 중지
+        guard column <= max else { return }
+        
+        outputMultipleOfTwoNumbers(column, row)
+        
+        if row < max {
+            outputGugudan(column: column, row: row + 1)
+        }
+        else {
+            outputGugudan(column: column + 1)
         }
     }
-
-    func recursiveRow(column: Int, row: Int = 9) {
-        if row != 0 {
-            recursiveRow(column: column, row: row - 1)
-            outputMultipleOfTwoNumbers(column, row)
-        }
-    }
+    
     // 두 수의 곱을 출력하는 함수
     func outputMultipleOfTwoNumbers(_ num1: Int, _ num2: Int) {
         print("\(num1) X \(num2) = \(num1 * num2)")
