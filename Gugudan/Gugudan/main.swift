@@ -18,6 +18,20 @@ import Foundation
  7. 깃허브에 올리고 코드 리뷰 요청하기
  */
 
+struct Multiple {
+    let num1: Int
+    let num2: Int
+    var multipleNum: Int {
+        get {
+            return self.num1 * self.num2
+        }
+    }
+    
+    func outputMultipleOfTwoNums() {
+        print("\(self.num1) X \(self.num2) = \(self.multipleNum)")
+    }
+    
+}
 
 // 4. 구조체
 struct Gugudan {
@@ -27,7 +41,8 @@ struct Gugudan {
         // 단수가 max값보다 크면 중지
         guard column <= max else { return }
         
-        outputMultipleOfTwoNumbers(column, row)
+        let multiple = Multiple(num1: column, num2: row)
+        multiple.outputMultipleOfTwoNums()
         
         if row < max {
             outputGugudan(column: column, row: row + 1)
@@ -35,11 +50,6 @@ struct Gugudan {
         else {
             outputGugudan(column: column + 1)
         }
-    }
-    
-    // 두 수의 곱을 출력하는 함수
-    func outputMultipleOfTwoNumbers(_ num1: Int, _ num2: Int) {
-        print("\(num1) X \(num2) = \(num1 * num2)")
     }
 }
 
