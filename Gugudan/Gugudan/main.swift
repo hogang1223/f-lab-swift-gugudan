@@ -21,6 +21,8 @@ import Foundation
 
 // 3. 함수로 바꿔서
 
+outputGugudanWithReadLine()
+
 // 입력받아서 출력
 func outputGugudanWithReadLine() {
     print("몇 단을 출력할까요? (숫자만 입력해주세요)")
@@ -29,24 +31,31 @@ func outputGugudanWithReadLine() {
         print("숫자만 입력해주세요.")
         return
     }
-    gugudan(column: Int(column)!)
+    dan(Int(column)!)
 }
 
-func gugudan(column: Int) {
-    for row in 1...9 {
-        gugudan(column: column, row: row)
+// 재귀함수 사용
+func dan(_ column: Int) {
+    recursiveGugudan(column: column)
+}
+
+func recursiveGugudan(column: Int, row: Int = 9) {
+    if row != 0 {
+        recursiveGugudan(column: column, row: row - 1)
+        outputMultipleOfTwoNumbers(column, row)
     }
 }
-
-func gugudan(column: Int, row: Int) {
-    print("\(column) X \(row) = \(column * row)")
+// 두 수의 곱을 출력하는 함수
+func outputMultipleOfTwoNumbers(_ num1: Int, _ num2: Int) {
+    print("\(num1) X \(num2) = \(num1 * num2)")
 }
 
+// while문으로 출력
 func gugudan() {
     var column = 1
     var row = 1
     while column < 10 {
-        gugudan(column: column, row: row)
+        outputMultipleOfTwoNumbers(column, row)
         row += 1
         if row > 9 {
             row = 1
