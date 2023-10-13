@@ -3,8 +3,10 @@
 2023-10-07 과제
 ### 구구단 구현 및 리팩토링 하기
 
-1. 스크립트로 구현하기 (1단부터 5단까지)
-2. 이중 반복문 사용해서 구현
-3. 함수로 구현
-4. 클래스, 구조체로 구현
-5. 함수형 프로그래밍으로 구현
+ 1. 스크립트 버전으로 5단 (branch: script)
+ 2. 중첩 루프 버전으로 1단 ~ 9단 (branch: doubleLoop)
+ 3. 함수로 바꿔서 (branch: function)
+ 4. 구조체 (branch: struct)
+ 5. 클래스로 (branch: class)
+ 6. Functional Programming 형태로 (branch: fp)
+ 7. 깃허브에 올리고 코드 리뷰 요청하기
