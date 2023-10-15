@@ -17,3 +17,46 @@ import Foundation
  6. Functional Programming 형태로
  7. 깃허브에 올리고 코드 리뷰 요청하기
  */
+
+// 5. 클래스로
+
+struct Multiple {
+    let num1: Int
+    let num2: Int
+    var multipleNum: Int {
+        get {
+            return self.num1 * self.num2
+        }
+    }
+    func output() {
+        print("\(self.num1) X \(self.num2) = \(self.multipleNum)")
+    }
+}
+
+class Gugudan {
+    var dans = [Int: [Multiple]]()
+    func outputGugudan(column: Int) {
+        if let dan = dans[column] {
+            outputDan(dan)
+        }
+        else {
+            addDan(column)
+        }
+    }
+    
+    func outputDan(_ dan: [Multiple]) {
+        for multiple in dan {
+            multiple.output()
+        }
+    }
+    
+    func addDan(_ column: Int) {
+        var rows = [Multiple]()
+        for row in 1...9 {
+            let multiple = Multiple(num1: column, num2: row)
+            multiple.output()
+            rows.append(multiple)
+        }
+        dans[column] = rows
+    }
+}
