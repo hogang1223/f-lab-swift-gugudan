@@ -39,11 +39,11 @@ func dan(_ column: Int) {
 }
 
 func recursiveGugudan(column: Int, row: Int = 9) {
-    if row != 0 {
-        recursiveGugudan(column: column, row: row - 1)
-        outputMultipleOfTwoNumbers(column, row)
-    }
+    guard row != 0 else { return }
+    recursiveGugudan(column: column, row: row - 1)
+    outputMultipleOfTwoNumbers(column, row)
 }
+
 // 두 수의 곱을 출력하는 함수
 func outputMultipleOfTwoNumbers(_ num1: Int, _ num2: Int) {
     print("\(num1) X \(num2) = \(num1 * num2)")
