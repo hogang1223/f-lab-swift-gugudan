@@ -26,8 +26,7 @@ outputGugudanWithReadLine()
 // 입력받아서 출력
 func outputGugudanWithReadLine() {
     print("몇 단을 출력할까요? (숫자만 입력해주세요)")
-    let readLine = readLine()
-    guard let column = readLine, Int(column) != nil else {
+    guard let column = readLine(), Int(column) != nil else {
         print("숫자만 입력해주세요.")
         return
     }
