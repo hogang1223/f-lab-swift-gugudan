@@ -34,22 +34,29 @@ struct Multiple {
 }
 
 class Gugudan {
-    // 내가 이미 출력한 적이 있는 친구면 굳이 다시 계산할 필요가 없지
     var dans = [Int: [Multiple]]()
     func outputGugudan(column: Int) {
         if let dan = dans[column] {
-            for multiple in dan {
-                multiple.output()
-            }
+            outputDan(dan)
         }
         else {
-            var rows = [Multiple]()
-            for row in 1...9 {
-                let multiple = Multiple(num1: column, num2: row)
-                multiple.output()
-                rows.append(multiple)
-            }
-            dans[column] = rows
+            addDan(column)
         }
+    }
+    
+    func outputDan(_ dan: [Multiple]) {
+        for multiple in dan {
+            multiple.output()
+        }
+    }
+    
+    func addDan(_ column: Int) {
+        var rows = [Multiple]()
+        for row in 1...9 {
+            let multiple = Multiple(num1: column, num2: row)
+            multiple.output()
+            rows.append(multiple)
+        }
+        dans[column] = rows
     }
 }
