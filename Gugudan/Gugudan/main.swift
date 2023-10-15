@@ -17,3 +17,11 @@ import Foundation
  6. Functional Programming 형태로
  7. 깃허브에 올리고 코드 리뷰 요청하기
  */
+
+// 2. 중첩 루프 버전으로 1단 ~ 9단
+for column in 1...9 {
+    print("\(column)단")
+    for row in 1...9 {
+        print("\(column) X \(row) = \(column * row)")
+    }
+}
