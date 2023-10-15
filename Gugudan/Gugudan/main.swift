@@ -17,3 +17,19 @@ import Foundation
  6. Functional Programming 형태로
  7. 깃허브에 올리고 코드 리뷰 요청하기
  */
+
+//  6. Functional Programming 형태로
+
+func gugudan(start: Int, end: Int, checkMax: (Int, Int) -> Bool) {
+    func outputgugudan(column: Int, row: Int) {
+        print("\(column) X \(row) = \(column * row)")
+        if checkMax(row, end) {
+            outputgugudan(column: column, row: row + 1)
+        } else if checkMax(column, end) {
+            outputgugudan(column: column + 1, row: start)
+        }
+    }
+    outputgugudan(column: start, row: start)
+}
+
+gugudan(start: 1, end: 9, checkMax: { $0 < $1 })
