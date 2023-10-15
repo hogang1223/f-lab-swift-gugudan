@@ -20,20 +20,16 @@ import Foundation
 
 //  6. Functional Programming 형태로
 
-func checkMax(num: Int, max: Int) -> Bool {
-    return num < max
-}
-
-func gugudan(start: Int, end: Int) {
-    func outputgugudan(column: Int, row: Int, checkMax: (Int, Int) -> Bool) {
+func gugudan(start: Int, end: Int, checkMax: (Int, Int) -> Bool) {
+    func outputgugudan(column: Int, row: Int) {
         print("\(column) X \(row) = \(column * row)")
         if checkMax(row, end) {
-            outputgugudan(column: column, row: row + 1, checkMax: checkMax)
+            outputgugudan(column: column, row: row + 1)
         } else if checkMax(column, end) {
-            outputgugudan(column: column + 1, row: start, checkMax: checkMax)
+            outputgugudan(column: column + 1, row: start)
         }
     }
-    outputgugudan(column: start, row: start, checkMax:checkMax(num:max:))
+    outputgugudan(column: start, row: start)
 }
 
-gugudan(start: 1, end: 9)
+gugudan(start: 1, end: 9, checkMax: { $0 < $1 })
